@@ -395,3 +395,26 @@ xpl /path/to/dir1 /path/to/foo1.txt
 xpf /path/to/foo1.txt
 xpf /path/to/dir1 /path/to/foo1.txt
 ```
+
+git/svn-to-here.sh
+==============================
+* 将git(或者svn)文件夹更新(svn update 或 git pull)并且把更新的文件复制到当前目录(与当前目录中的文件做对比，cp -u)
+* 可用于git和svn之间的手动互转
+
+### 用法
+
+```bash
+git-to-here.sh ~/Git/Proj1 # 将Git目录~/Git/Proj1更新并把新的文件复制到当前文件夹
+# 或者
+svn-to-here.sh ~/Git/Proj1 # 将SVN目录~/SVN/Proj1更新并把新的文件复制到当前文件夹
+```
+
+我经常这样：
+```bash
+cd ~/SVN/Proj1
+git-to-here.sh ~/Git/Proj1
+svn status
+svn commit -m 'some commit'
+# 从Git仓库到SVN参考提交完成
+```
+
